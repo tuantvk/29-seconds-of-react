@@ -1095,14 +1095,15 @@ ReactDOM.render(<CountDown hours="1" minutes="45" />, document.getElementById('r
 
 Hiển thị một component kéo và thả cho một file.
 
-* Create a ref called `dropRef` for this component.
-* Use the `React.useState()` hook to create the `drag` and `filename` variables, initialized to `false` and `''` respectively.
-The variables `dragCounter` and `drag` are used to determine if a file is being dragged, while `filename` is used to store the dropped file's name.
-* Create the `handleDrag`, `handleDragIn`, `handleDragOut` and `handleDrop` methods to handle drag and drop functionality, bind them to the component's context.
+* Tạo một ref gọi là `dropRef` cho component.
+* Sử dụng hook `React.useState()` để tạo biến `drag` và `filename`, với giá trị ban đầu lần lượt là `false` và `''`.
+Biến `dragCounter` và `drag` được sử dụng để xác định một file có đang kéo hay không, còn `filename` để xác định tên file khi đã thả.
+* Tạo các hàm `handleDrag`, `handleDragIn`, `handleDragOut` và `handleDrop` để xử lý chức năng kéo và thả, liên kết chúng với ngữ cảnh của component.
 * Each of the methods will handle a specific event, the listeners for which are created and removed in the `React.useEffect()` hook and its attached `cleanup()` method.
-* `handleDrag` prevents the browser from opening the dragged file, `handleDragIn` and `handleDragOut` handle the dragged file entering and exiting the component, while `handleDrop` handles the file being dropped and passes it to `props.handleDrop`.
-* Return an appropriately styled `<div>` and use `drag` and `filename` to determine its contents and style.
-* Finally, bind the `ref` of the created `<div>` to `dropRef`.
+* Mỗi phương thức sẽ xử lý một sự kiện cụ thể, tạo các sự kiện lắng nghe và xóa chúng trong hook `React.useEffect()` và hàm `cleanup()`.
+* `handleDrag` ngăn trình duyệt mở file đã kéo, `handleDragIn` và `handleDragOut` xử lý file được kéo vào và thoát khỏi component, trong khi `handleDrop` xử lý file bị thả và chuyển nó sang `props.handleDrop`.
+* Trả về một `<div>` với style phù hợp và sử dụng `drag` và `filename` để xác định tên file và style.
+* Cuối cùng, liên kết `ref` của `<div>` đã tạo với `dropRef`.
 
 ```css
 .filedrop {
@@ -1198,10 +1199,10 @@ ReactDOM.render(<FileDrop handleDrop={console.log} />, document.getElementById('
 
 ### Mailto
 
-Renders a link formatted to send an email.
+Hiển thị một liên kết được format để gửi email.
 
-* Destructure the component's props, use `email`, `subject` and `body` to create a `<a>` element with an appropriate `href` attribute.
-* Render the link with `props.children` as its content.
+* Lấy các giá trị component qua prop, sử dụng `email`, `subject` và `body` để tạo một thẻ `<a>` với thuộc tính `href` thích hợp.
+* Hiển thị nội dung của nó bằng `props.children` .
 
 ```jsx
 function Mailto({ email, subject, body, ...props }) {
@@ -1228,14 +1229,14 @@ ReactDOM.render(
 
 ### Modal
 
-Renders a Modal component, controllable through events.
-To use the component, import `Modal` only once and then display it by passing a boolean value to the `isVisible` attribute.
+Hiển thị một component Modal, có thể điều khiển thông qua các sự kiện.
+Để sử dụng component, import `Modal` một lần và hiển thị nó thông qua thuộc tính của `isVisible`.
 
-* Use object destructuring to set defaults for certain attributes of the modal component.
-* Define `keydownHandler`, a method which handles all keyboard events, which can be used according to your needs to dispatch actions (e.g. close the modal when <kbd>Esc</kbd> is pressed).
-* Use `React.useEffect()` hook to add or remove the `keydown` event listener, which calls `keydownHandler`.
-* Use the `isVisible` prop to determine if the modal should be shown or not.
-* Use CSS to style and position the modal component.
+* Sử dụng object destructuring để xét giá trị ban đầu cho component Modal.
+* Xác định `keydownHandler`, một phương thức xử lý tất cả các sự kiện bàn phím, có thể được sử dụng theo nhu cầu của bạn để làm một hành động nào đó (ví dụ: đóng Modal khi nhấn <kbd>Esc</kbd>).
+* Sử dụng hook `React.useEffect()` để thêm hoặc xóa sự kiện `keydown`, khi gọi hàm `keydownHandler`.
+* Sử dụng prop `isVisible` để xác định Modal có được hiển thị hay không.
+* Sử dụng CSS để style cho Modal.
 
 ```css
 .modal {
@@ -1370,11 +1371,11 @@ ReactDOM.render( <App/>, document.getElementById('root'));
 
 Hiển thị một star rating component.
 
-* Define a component, called `Star` that will render each individual star with the appropriate appearance, based on the parent component's state.
-* In the `StarRating` component, use the `React.useState()` hook to define the `rating` and `selection` state variables with the initial values of `props.rating` (or `0` if invalid or not supplied) and `0`.
-* Create a method, `hoverOver`, that updates `selected` and `rating` according to the provided `event`.
-* Create a `<div>` to wrap the `<Star>` components, which are created using `Array.prototype.map` on an array of 5 elements, created using `Array.from`, and handle the `onMouseLeave` event to set `selection` to `0`, the `onClick` event to set the `rating` and the `onMouseOver` event to set `selection` to the `star-id` attribute of the `event.target` respectively.
-* Finally, pass the appropriate values to each `<Star>` component (`starId` and `marked`).
+* Component `Star` sẽ hiển thị từng ngôi sao riêng lẻ với style phù hợp dựa vào trạng thái của parent component.
+* Trong component `StarRating`, sử dụng hook `React.useState()` để xác định trạng thái của biến `rating` và `selection` với giá trị mặc định ban đầu là `props.rating` (hoặc `0` nếu như không tồn tại) và `0`.
+* Tạo một hàm, `hoverOver`, để cập nhật giá trị `selected` và `rating`.
+* Tạo một `<div>` để bọc những component `<Star>`, sử dụng `Array.prototype.map` để hiển thị 5 phần tử, được tạo bằng `Array.from`, và hàm `onMouseLeave` sẽ xét `selection` thành `0`, hàm `onClick` sẽ xét giá trị cho `rating` và hàm `onMouseOver` xét cho `selection` bằng giá trị thuộc tính của `star-id` của `event.target`.
+* Cuối cùng, truyền các giá trị cho component `<Star>` (`starId` và `marked`).
 
 ```jsx
 function Star({ marked, starId }) {
@@ -1425,13 +1426,13 @@ ReactDOM.render(<StarRating rating={2} />, document.getElementById('root'));
 
 ### Tabs
 
-Renders a tabbed menu and view component.
+Hiển thị một tab menu và xem component.
 
-* Define a `TabItem` component, pass it to the `Tab` and remove unnecessary nodes expect for `TabItem` by identifying the function's name in `props.children`.
-* Use the `React.useState()` hook to initialize the value of the `bindIndex` state variable to `props.defaultIndex`.
-* Use `Array.prototype.map` on the collected nodes to render the `tab-menu` and `tab-view`.
-* Define `changeTab`, which will be executed when clicking a `<button>` from the `tab-menu`.
-* `changeTab` executes the passed callback, `onTabClick` and updates `bindIndex`, which in turn causes a re-render, evaluating the `style` and `className` of the `tab-view` items and `tab-menu` buttons according to their `index`.
+* Component `TabItem`, sẽ hiển thị các giá trị cần thiết thông qua tên trong hàm `props.children`.
+* Sử dụng hook `React.useState()` để tạo biến `bindIndex` có giá trị ban đầu bằng `props.defaultIndex`.
+* Sử dụng `Array.prototype.map` để hiển thị các `tab-menu` và `tab-view`.
+* Hàm `changeTab`, sẽ chạy khi onlcik vào `<button>` từ `tab-menu`.
+* Hàm `changeTab` sẽ gọi lại, `onTabClick` và cập nhật `bindIndex`, từ đó thì hiển thị lại, và thay đổi `style` và `className` của item `tab-view` và button `tab-menu` theo `index` của chúng.
 
 ```css
 .tab-menu > button {
@@ -1511,8 +1512,8 @@ ReactDOM.render(
 Hiển thị một ticker component.
 
 * Sử dụng `React.useState()` để khởi tạo biến `ticker` và giá trị mặc định là `0`.
-* Define two methods, `tick` and `reset`, that will periodically increment `timer` based on `interval` and reset `interval` respectively.
-* Return a `<div>` with two `<button>` elements, each of which calls `tick` and `reset` respectively.
+* Hàm `tick` và `reset` sẽ tăng theo `timer` dựa trên `interval` và reset `interval` tương ứng.
+* Trả về một `<div>` với hai phần tử `<button>`, mỗi phần tử gọi lần lượt là `tick` và` reset`.
 
 ```jsx
 // https://overreacted.io/making-setinterval-declarative-with-react-hooks/
@@ -1579,8 +1580,8 @@ ReactDOM.render(<Ticker times={5} interval={1000} />, document.getElementById('r
 Hiển thị một toggle component.
 
 * Sử dụng `React.useState()` để khởi tạo biến `isToggleOn` và giá trị mặc định là `false`.
-* Use an object, `style`, to hold the styles for individual components and their states.
-* Return a `<button>` that alters the component's `isToggledOn` when its `onClick` event is fired and determine the appearance of the content based on `isToggleOn`, applying the appropriate CSS rules from the `style` object.
+* Sử dụng `style` để tạo kiểu cho mỗi component khác nhau.
+* Trả về một `<button>` để làm thay đổi giá trị `isToggledOn` khi gọi sự kiện `onClick` và dựa trên biến `isToggledOn` sẽ thay đổi giá trị CSS của `style` button.
 
 ```jsx
 function Toggle(props) {
@@ -1617,8 +1618,8 @@ ReactDOM.render(<Toggle />, document.getElementById('root'));
 Hiển thị một tooltip component.
 
 * Sử dụng `React.useState()` để khởi tạo biến `show` và giá trị mặc định là `false`.
-* Return a `<div>` element that contains the `<div>` that will be the tooltip and the `children` passed to the component.
-* Handle the `onMouseEnter` and `onMouseLeave` methods, by altering the value of the `show` variable.
+* Trả về một thẻ `<div>` có chứa `<div>` sẽ là tooltip và prop `children` truyền cho component.
+* Hàm `onMouseEnter` và `onMouseLeave` sẽ làm thay đổi giá trị của biến `show`.
 
 ```css
 .tooltip {
