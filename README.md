@@ -6,7 +6,7 @@
 
 >**Chú thích:**
 >
->Tại sao lại là 29 giây hoặc ít hơn? Bài viết được dịch từ [30 seconds of React](https://github.com/30-seconds/30-seconds-of-react), theo người ta chúng ta có thể phải mất tới 30 giây để hiểu hết được ý nghĩa của một vấn đề nào đó, nhưng chúng ta là người **Việt Nam** nên chúng ta chỉ cần 29 giây :alien:, và đó là lý do của tiêu đề đã bị đổi thành *29 seconds of React*.
+>Tại sao lại là 29 giây hoặc ít hơn? Bài viết được dịch từ [30 seconds of React](https://github.com/30-seconds/30-seconds-of-react), theo nhà người ta, chúng ta có thể phải mất tới 30 giây để hiểu hết được ý nghĩa của một vấn đề nào đó, nhưng chúng ta là người **Việt Nam** nên chúng ta chỉ cần 29 giây :alien:, và đó là lý do của tiêu đề đã bị đổi thành *29 seconds of React*.
 
 - Sử dụng <kbd>Ctrl</kbd> + <kbd>F</kbd> hoặc <kbd>command</kbd> + <kbd>F</kbd> để tìm kiếm nhanh một snippet.
 - Contributions, hãy đọc [contribution guide](CONTRIBUTING.md).
@@ -115,7 +115,7 @@ import ReactDOM from 'react-dom';
 ## Array
 ### DataList
 
-Renders một danh sách các phần tử từ một mảng.
+Renders một danh sách các phần tử từ một mảng cho trước.
 
 * Sử dụng giá trị của prop `isOrdered` là điều kiện để hiển thị danh sách `<ol>` hoặc `<ul>`.
 * Sử dụng `Array.prototype.map` để hiển thị các mục trong `data` như là thẻ `<li>`, cung cấp một `key` được tạo ra từ sự kết hợp của index và giá trị của nó.
@@ -142,10 +142,10 @@ ReactDOM.render(<DataList data={names} isOrdered />, document.getElementById('ro
 
 ### DataTable
 
-Renders a table with rows dynamically created from an array of primitives.
+Hiển thị một table với các hàng được tạo động từ một mảng cho trước.
 
-* Render a `<table>` element with two columns (`ID` and `Value`).
-* Use `Array.prototype.map` to render every item in `data` as a `<tr>` element, consisting of its index and value, give it a `key` produced from the concatenation of the two.
+* Hiển thị một phần tử `<table>`với hai cột (`ID` và `Value`).
+* Sử dụng `Array.prototype.map` để hiển thị các mục trong `data` như là thẻ `<tr>`, cung cấp một `key` được tạo ra từ sự kết hợp của index và giá trị của nó.
 
 ```jsx
 function DataTable({ data }) {
@@ -183,12 +183,12 @@ ReactDOM.render(<DataTable data={people} />, document.getElementById('root'));
 
 ### MappedTable
 
-Renders a table with rows dynamically created from an array of objects and a list of property names.
+Hiển thị một table với các hàng được tạo động từ một mảng các đối tượng và một danh sách các tên thuộc tính.
 
-* Use `Object.keys()`, `Array.prototype.filter()`, `Array.prototype.includes()` and `Array.prototype.reduce()` to produce a `filteredData` array, containing all objects with the keys specified in `propertyNames`.
-* Render a `<table>` element with a set of columns equal to the amount of values in `propertyNames`.
-* Use `Array.prototype.map` to render each value in the `propertyNames` array as a `<th>` element.
-* Use `Array.prototype.map` to render each object in the `filteredData` array as a `<tr>` element, containing a `<td>` for each key in the object.
+* Sử dụng `Object.keys()`, `Array.prototype.filter()`, `Array.prototype.includes()` và `Array.prototype.reduce()` để tạo ra một mảng `filteredData`, chứa tất cả các đối tượng có các key chỉ định trong `propertyNames`.
+* Hiển thị một phần tử `<table>` với các cột bằng với số lượng giá trị trong `propertyNames`.
+* Sử dụng `Array.prototype.map` để hiển thị từng giá trị trong mảng `propertyNames` như là thẻ `<th>`.
+* Sử dụng `Array.prototype.map` để hiển thị từng đối tượng trong mảng `filteredData` như là thẻ `<tr>`, chứa một `<td>` cho mỗi giá trị trong đối tượng.
 
 ```jsx
 function MappedTable({ data, propertyNames }) {
@@ -219,9 +219,9 @@ function MappedTable({ data, propertyNames }) {
   );
 }
 ```
-#### Notes
+#### Ghi chú
 
-This component does not work with nested objects and will break if there are nested objects inside any of the properties specified in `propertyNames`.,<!-tags: array,object -->,<!-expertise: 1 -->
+Component này không hoạt động với các đối tượng lồng nhau và sẽ break nếu có các đối tượng lồng nhau bên trong bất kỳ thuộc tính nào trong `propertyNames`.,<!-tags: array,object -->,<!-expertise: 1 -->
 
 <details>
 <summary>Ví dụ</summary>
@@ -245,10 +245,10 @@ ReactDOM.render(
 ## Input
 ### Input
 
-Renders an `<input>` element that uses a callback function to pass its value to the parent component.
+Hiển thị một phần tử `<input>` khi thay đổi giá trị sẽ gọi hàm callback và truyền giá trị của nó cho parent component.
 
-* Use object destructuring to set defaults for certain attributes of the `<input>` element.
-* Render an `<input>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the input to the parent.
+* Sử dụng các giá trị mặc định ban đầu cho các tham số của phần tử `<input>`.
+* Hiển thị một thẻ `<input>` với các thuộc tính phù hợp và sử dụng hàm `callback` trong sự kiện `onChange` để truyền giá trị của của input cho parent component.
 
 ```jsx
 function Input({ callback, type = 'text', disabled = false, readOnly = false, placeholder = '' }) {
@@ -279,12 +279,11 @@ ReactDOM.render(
 
 ### LimitedTextarea
 
-Renders a textarea component with a character limit.
+Hiển thị một textarea component giới hạn kí tự.
 
-* Use the `React.useState()` hook to create the `content` state variable and set its value to `value`.
-Create a method `setFormattedContent`, which trims the content of the input if it's longer than `limit`.
-* Use the `React.useEffect()` hook to call the `setFormattedContent` method on the value of the `content` state variable.
-* Use a`<div>` to wrap both the`<textarea>` and the `<p>` element that displays the character count and bind the `onChange` event of the `<textarea>` to call `setFormattedContent` with the value of `event.target.value`.
+* Sử dụng hook `React.useState()` tạo một biến `content` và xét giá trị cho nó là `value`. Tạo hàm `setFormattedContent`, nó sẽ cắt nội dung nếu như vượt quá số lượng `limit`.
+* Sử dụng hook `React.useEffect()` để gọi hàm `setFormattedContent` với giá trị truyền vào là biến `content`.
+* Sử dụng `<div>` để bao thẻ `<textarea>` và thẻ `<p>` hiển thị độ dài của `content` và hàm `onChange` của thẻ `<textarea>`sẽ gọi hàm `setFormattedContent` và truyền giá trị là `event.target.value`.
 
 ```jsx
 function LimitedTextarea({ rows, cols, value, limit }) {
@@ -326,13 +325,13 @@ ReactDOM.render(<LimitedTextarea limit={32} value="Hello!" />, document.getEleme
 
 ### LimitedWordTextarea
 
-Renders a textarea component with a word limit.
+Hiển thị một textarea component hạn chế từ.
 
-* Use the `React.useState()` hook to create the `content` and `wordCount` state variables and set their values to `value` and `0` respectively.
-* Create a method `setFormattedContent`, which uses `String.prototype.split(' ')` to turn the input into an array of words and check if the result of applying `Array.prototype.filter(Boolean)` has a `length` longer than `limit`.
-* If the afforementioned `length` exceeds the `limit`, trim the input, otherwise return the raw input, updating `content` and `wordCount` accordingly in both cases.
-* Use the `React.useEffect()` hook to call the `setFormattedContent` method on the value of the `content` state variable.
-* Use a`<div>` to wrap both the`<textarea>` and the `<p>` element that displays the character count and bind the `onChange` event of the `<textarea>` to call `setFormattedContent` with the value of `event.target.value`.
+* Sử dụng hook `React.useState()`để tạo biến `content` và `wordCount` xét giá trị cho chúng là `value` và `0`.
+* Tạo hàm `setFormattedContent`, sử dụng `String.prototype.split(' ')` để biến đầu vào thành một mảng các từ và kiểm tra kết quả , sử dụng `Array.prototype.filter(Boolean)`để kiếm tra `độ dài` có lớn hơn `limit`.
+* Nếu độ dài lớn hơn `limit`, sẽ cắt giá trị và xét lại giá trị cho `content` và `wordCount` nếu không sẽ trả về giá trị mặc định.
+* Sử dụng hook `React.useEffect()` để gọi hàm `setFormattedContent` với giá trị truyền vào là biến `content`.
+* Sử dụng `<div>` để bọc thẻ `<textarea>` và thẻ `<p>` hiển thị độ dài của `wordCount` và hàm `onChange` của thẻ `<textarea>` sẽ gọi hàm `setFormattedContent` và truyền giá trị là `event.target.value`.
 
 ```jsx
 function LimitedWordTextarea({ rows, cols, value, limit }) {
@@ -487,7 +486,7 @@ ReactDOM.render(<PasswordRevealer />, document.getElementById('root'));
 
 ### Select
 
-Renders a `<select>` element that uses a callback function to pass its value to the parent component.
+Hiển thị một phần tử `<select>` khi thay đổi giá trị sẽ gọi hàm callback và truyền giá trị của nó cho parent component.
 
 * Use object destructuring to set defaults for certain attributes of the `<select>` element.
 * Render a `<select>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the textarea to the parent.
@@ -562,7 +561,7 @@ ReactDOM.render(<Slider callback={val => console.log(val)} />, document.getEleme
 
 ### TextArea
 
-Renders a `<textarea>` element that uses a callback function to pass its value to the parent component.
+Hiển thị một phần tử `<textarea>` khi thay đổi giá trị sẽ gọi hàm callback và truyền giá trị của nó cho parent component.
 
 * Use object destructuring to set defaults for certain attributes of the `<textarea>` element.
 * Render a `<textarea>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the textarea to the parent.
@@ -865,7 +864,7 @@ ReactDOM.render(
 
 ### Carousel
 
-Renders a carousel component.
+Hiển thị một carousel component.
 
 * Use the `React.setState()` hook to create the `active` state variable and give it a value of `0` (index of the first item).
 * Use an object, `style`, to hold the styles for the individual components.
@@ -1078,7 +1077,7 @@ ReactDOM.render(<CountDown hours="1" minutes="45" />, document.getElementById('r
 
 ### FileDrop
 
-Renders a file drag and drop component for a single file.
+Hiển thị một component kéo và thả cho một file.
 
 * Create a ref called `dropRef` for this component.
 * Use the `React.useState()` hook to create the `drag` and `filename` variables, initialized to `false` and `''` respectively.
@@ -1353,7 +1352,7 @@ ReactDOM.render( <App/>, document.getElementById('root'));
 
 ### StarRating
 
-Renders a star rating component.
+Hiển thị một star rating component.
 
 * Define a component, called `Star` that will render each individual star with the appropriate appearance, based on the parent component's state.
 * In the `StarRating` component, use the `React.useState()` hook to define the `rating` and `selection` state variables with the initial values of `props.rating` (or `0` if invalid or not supplied) and `0`.
@@ -1493,9 +1492,9 @@ ReactDOM.render(
 
 ### Ticker
 
-Renders a ticker component.
+Hiển thị một ticker component.
 
-* Use the `React.useState()` hook to initialize the `ticker` state variable to `0`.
+* Sử dụng `React.useState()` để khởi tạo biến `ticker` và giá trị mặc định là `0`.
 * Define two methods, `tick` and `reset`, that will periodically increment `timer` based on `interval` and reset `interval` respectively.
 * Return a `<div>` with two `<button>` elements, each of which calls `tick` and `reset` respectively.
 
@@ -1561,9 +1560,9 @@ ReactDOM.render(<Ticker times={5} interval={1000} />, document.getElementById('r
 
 ### Toggle
 
-Renders a toggle component.
+Hiển thị một toggle component.
 
-* Use the `React.useState()` to initialize the `isToggleOn` state variable to `false`.
+* Sử dụng `React.useState()` để khởi tạo biến `isToggleOn` và giá trị mặc định là `false`.
 * Use an object, `style`, to hold the styles for individual components and their states.
 * Return a `<button>` that alters the component's `isToggledOn` when its `onClick` event is fired and determine the appearance of the content based on `isToggleOn`, applying the appropriate CSS rules from the `style` object.
 
@@ -1599,9 +1598,9 @@ ReactDOM.render(<Toggle />, document.getElementById('root'));
 
 ### Tooltip
 
-Renders a tooltip component.
+Hiển thị một tooltip component.
 
-* Use the `React.useState()` hook to create the `show` variable and initialize it to `false`.
+* Sử dụng `React.useState()` để khởi tạo biến `show` và giá trị mặc định là `false`.
 * Return a `<div>` element that contains the `<div>` that will be the tooltip and the `children` passed to the component.
 * Handle the `onMouseEnter` and `onMouseLeave` methods, by altering the value of the `show` variable.
 
@@ -1660,6 +1659,4 @@ ReactDOM.render(
 
 ---
 
-_This repository is a work in progress. If you want to contribute, please check the open issues to see where and how you can help out!_
-
-_This README is built using [markdown-builder](https://github.com/30-seconds/markdown-builder)._
+_Đây là repository đang hoàn thiện. Nếu bạn muốn trở thành contribute, hãy PRs hoặc tạo issues nếu như bạn cần hỗ trợ !_
