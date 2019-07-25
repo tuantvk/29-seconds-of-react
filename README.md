@@ -2,6 +2,21 @@
 
 # 29 seconds of React
 
+<p align="center">
+  <a href="https://github.com/tuantvk/29-seconds-of-react/issues">
+    <img src="https://img.shields.io/github/issues/tuantvk/29-seconds-of-react.svg" alt="issues" />
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/github/forks/tuantvk/29-seconds-of-react.svg" alt="forks" />
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/github/stars/tuantvk/29-seconds-of-react.svg" alt="stars" />
+  </a>
+  <a href="https://github.com/tuantvk/29-seconds-of-react/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/tuantvk/29-seconds-of-react.svg" alt="LICENSE" />
+  </a>
+</p>
+
 > Bộ sưu tập cho React snippets giúp bạn hiểu mọi thứ trong 29 giây hoặc ít hơn.
 
 >**Chú thích:**
@@ -41,6 +56,7 @@ import ReactDOM from 'react-dom';
 - [30 Seconds of Code](https://30secondsofcode.org)
 - [30 Seconds of CSS](https://30-seconds.github.io/30-seconds-of-css/)
 - [30 Seconds of Interviews](https://30secondsofinterviews.org/)
+- [Javascript Interview Questions Developer](https://github.com/tuantvk/javascript-interview-questions-developer)
 
 ## Table of Contents
 
@@ -389,12 +405,12 @@ ReactDOM.render(
 
 ### MultiselectCheckbox
 
-Renders a checkbox list that uses a callback function to pass its selected value/values to the parent component.
+Hiển thị một danh sách checkbox sử dụng hàm callback để chọn giá trị hoặc nhiều giá trị từ parent component.
 
-* Use `React.setState()` to create a `data` state variable and set its initial value equal to the `options` prop.
-* Create a function `toggle` that is used to toggle the `checked` to update the `data` state variable and call the `onChange` callback passed via the component's props.
-* Render a `<ul>` element and use `Array.prototype.map()` to map the `data` state variable to individual `<li>` elements with `<input>` elements as their children.
-* Each `<input>` element has the `type='checkbox'` attribute and is marked as `readOnly`, as its click events are handled by the parent `<li>` element's `onClick` handler.
+* Sử dụng `React.setState()` để tạo một biến `data` và xét giá trị khởi là từ prop `options`.
+* Tạo một function `toggle` được sử dụng để chuyển đổi `checked` cập nhật giá trị cho `data` và gọi hàm `onChange` để truyền lại cho parent component.
+* Hiển thị phần tử `<ul>` và sử dụng `Array.prototype.map()` để lặp từng phần tử trong `data` hiển thị các phần tử `<li>` và `<input>` bên trong.
+* Mỗi phần tử `<input>` có thuộc tính `type='checkbox'`và giá trị `readOnly`.
 
 ```jsx
 const style = {
@@ -456,10 +472,10 @@ ReactDOM.render(
 
 ### PasswordRevealer
 
-Renders a password input field with a reveal button.
+Hiển thị trường nhập mật khẩu bằng cách bật tắt
 
-* Use the `React.useState()` hook to create the `shown` state variable and set its value to `false`.
-* Use a`<div>` to wrap both the`<input>` and the `<button>` element that toggles the type of the input field between `"text"` and `"password"`.
+* Sử dụng hook `React.useState()` tạo một biến `shown` và cho nó giá trị là `false`.
+* Sử dụng một thẻ `<div>` đê bọc `<input>` và phần tử `<button>` để thay đổi trạng thái `"text"` và `"password"`.
 
 ```jsx
 function PasswordRevealer({ value }) {
@@ -488,9 +504,9 @@ ReactDOM.render(<PasswordRevealer />, document.getElementById('root'));
 
 Hiển thị một phần tử `<select>` khi thay đổi giá trị sẽ gọi hàm callback và truyền giá trị của nó cho parent component.
 
-* Use object destructuring to set defaults for certain attributes of the `<select>` element.
-* Render a `<select>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the textarea to the parent.
-* Use destructuring on the `values` array to pass an array of `value` and `text` elements and the `selected` attribute to define the initial `value` of the `<select>` element.
+* Sử dụng các giá trị mặc định ban đầu cho các tham số của phần tử `<select>`.
+* Hiển thị một phần tử `<select>` với các thuộc tính phù hợp và sử dụng hàm `callback` là `onChange` để thay đổi giá trị của textarea từ parent component.
+* Các giá trị của mảng `values` sẽ truyền `value`, `text` và thuộc tính `selected` sẽ là giá trị ban đầu của phần tử `<select>`.
 
 ```jsx
 function Select({ values, callback, disabled = false, readonly = false, selected }) {
