@@ -21,37 +21,15 @@
 
 >**Chú thích:**
 >
->Tại sao lại là 29 giây hoặc ít hơn? Bài viết được dịch từ [30 seconds of React](https://github.com/30-seconds/30-seconds-of-react), theo nhà người ta, chúng ta có thể phải mất tới 30 giây để hiểu hết được ý nghĩa của một vấn đề nào đó, nhưng chúng ta là người **Việt Nam** nên chúng ta chỉ cần 29 giây :alien:, và đó là lý do của tiêu đề đã bị đổi thành *29 seconds of React*.
+>Tại sao lại là 29 giây hoặc ít hơn? Bài viết được dịch từ [30 seconds of React](https://github.com/30-seconds/30-seconds-of-react), theo nhà người ta, chúng ta có thể phải mất tới 30 giây để hiểu hết được ý nghĩa của một vấn đề nào đó, nhưng với tôi chúng ta là người **Việt Nam**, chúng ta phải khác biệt nên chúng ta chỉ cần 29 giây :alien: :alien:, và đó là lý do của tiêu đề đã bị đổi thành *29 seconds of React*.
 
 - Sử dụng <kbd>Ctrl</kbd> + <kbd>F</kbd> hoặc <kbd>command</kbd> + <kbd>F</kbd> để tìm kiếm nhanh một snippet.
 - Contributions, hãy đọc [contribution guide](CONTRIBUTING.md).
 - Snippets viết bằng React 16.8+, sử dụng hooks.
 
-### Prerequisites
+#### Xem [Prerequisites](/Prerequisites.md) 
 
-To import a snippet into your project, you must import `React` and copy-paste the component's JavaScript code like this:
-
-```js
-import React from 'react';
-
-function MyComponent(props) {
-  /* ... */
-}
-```
-
-If there is any CSS related to your component, copy-paste it to a new file with the same name and the appropriate extension, then import it like this:
-
-```js
-import './MyComponent.css';
-```
-
-To render your component, make sure there is a node with and id of `"root"` present in your element (preferrably a `<div>`) and that you have imported `ReactDOM`, like this:
-
-```js
-import ReactDOM from 'react-dom';
-```
-
-#### Related projects
+#### Các project khác
 
 - [30 Seconds of Code](https://30secondsofcode.org)
 - [30 Seconds of CSS](https://30-seconds.github.io/30-seconds-of-css/)
@@ -1677,3 +1655,6 @@ ReactDOM.render(
 ---
 
 _Đây là repository đang hoàn thiện. Nếu bạn muốn trở thành contribute, hãy PRs hoặc tạo issues nếu như bạn cần hỗ trợ !_
+
+
+### Hãy cùng nhau xây dựng một cộng đồng phát triển !
