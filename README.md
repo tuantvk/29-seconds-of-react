@@ -547,10 +547,10 @@ ReactDOM.render(
 
 ### Slider
 
-Renders a slider element that uses a callback function to pass its value to the parent component.
+Hiển thị một phần tử slider khi sử dụng sẽ gọi hàm callback và truyền giá trị của nó cho parent component.
 
-* Use object destructuring to set defaults for certain attributes of the `<input>` element.
-* Render an `<input>` element of type `"range"` and the appropriate attributes, use the `callback` function in the `onChange` event to pass the value of the input to the parent.
+* Sử dụng object destructuring để xét các giá trị ban đầu cho thuộc tính có phần tử `<input>`.
+* Hiển thị một phần tử `<input>` có type `"range"` và các thuộc tính phù hợp, sử dụng hàm `callback` trong sự kiện `onChange` để truyền ngược lại giá trị cho input parent component.
 
 ```jsx
 function Slider({ callback, disabled = false, readOnly = false }) {
@@ -579,8 +579,8 @@ ReactDOM.render(<Slider callback={val => console.log(val)} />, document.getEleme
 
 Hiển thị một phần tử `<textarea>` khi thay đổi giá trị sẽ gọi hàm callback và truyền giá trị của nó cho parent component.
 
-* Use object destructuring to set defaults for certain attributes of the `<textarea>` element.
-* Render a `<textarea>` element with the appropriate attributes and use the `callback` function in the `onChange` event to pass the value of the textarea to the parent.
+* Sử dụng object destructuring để xét các giá trị ban đầu cho thuộc tính có phần tử `<textarea>`.
+* Hiển thị một phần tử `<textarea>` với các thuộc tính phù hợp và sử dụng hàm `callback` trong sự kiện `onChange` để truyền ngược lại giá trị cho textarea parent component.
 
 ```jsx
 function TextArea({
@@ -621,15 +621,15 @@ ReactDOM.render(
 ## Object
 ### TreeView
 
-Renders a tree view of a JSON object or array with collapsible content.
+Hiển thị dạng cây của một đối tượng JSON hoặc mảng có nội dung có thể thu gọn.
 
-* Use object destructuring to set defaults for certain props.
-* Use the value of the `toggled` prop to determine the initial state of the content (collapsed/expanded).
-* Use the `React.setState()` hook to create the `isToggled` state variable and give it the value of the `toggled` prop initially.
-* Return a `<div>` to wrap the contents of the component and the `<span>` element, used to alter the component's `isToggled` state.
-* Determine the appearance of the component, based on `isParentToggled`, `isToggled`, `name` and `Array.isArray()` on `data`.
-* For each child in `data`, determine if it is an object or array and recursively render a sub-tree.
-* Otherwise, render a `<p>` element with the appropriate style.
+* Sử dụng object destructuring để xét các giá trị ban đầu cho thuộc tính
+* Sử dụng giá trị của prop `toggled` để xác định trạng thái ban đầu của nội dung (được thu gọn / mở rộng).
+* Sử dụng hook `React.setState()` để tạo biến `isToggled` và xét cho chúng giá trị bằng với prop `toggled` ban đầu.
+* Trả về một `<div>` để bọc nội dung của component và thẻ `<span>`, sử dụng để thay đổi giá trị của biến `isToggled`.
+* Xác định sự xuất hiện của component, dựa trên biến `isParentToggled`, `isToggled`, `name` và `Array.isArray()` với `data`.
+* Với mỗi phần tử trong `data` xác định nó là object hay mảng và hiển thị đệ quy một sub-tree.
+* Mặt khác, hiển thị một phần tử `<p>` với thuộc tính style thích hợp..
 
 ```css
 .tree-element {
@@ -753,10 +753,10 @@ ReactDOM.render(<TreeView data={data} name="data" />, document.getElementById('r
 ## String
 ### AutoLink
 
-Renders a string as plaintext, with URLs converted to appropriate `<a>` elements.
+Hiển thị một chuỗi dưới dạng plaintext, với các URL được chuyển đổi thành các phần tử `<a>` phù hợp.
 
-* Use `String.prototype.split()` and `String.prototype.match()` with a regular expression to find URLs in a string.
-* Return a `<React.Fragment>` with matched URLs rendered as `<a>` elements, dealing with missing protocol prefixes if necessary, and the rest of the string rendered as plaintext.
+* Sử dụng `String.prototype.split()` và `String.prototype.match()` với regular expression để tìm URL trong chuỗi.
+* Trả về một `<React.Fragment>` với các URL trùng khớp được hiển thị dưới dạng các phần tử `<a>`,  và phần còn lại của chuỗi được hiển thị dưới dạng plaintext.
 
 ```jsx
 function AutoLink({ text }) {
@@ -794,14 +794,14 @@ ReactDOM.render(
 ## Visual
 ### Accordion
 
-Renders an accordion menu with multiple collapsible content components.
+Hiển thị một menu accordion với với nội dung component có thể thu gọn.
 
-* Define an `AccordionItem` component, pass it to the `Accordion` and remove unnecessary nodes expect for `AccordionItem` by identifying the function's name in `props.children`.
-* Each `AccordionItem` component renders a `<button>` that is used to update the `Accordion` via the `props.handleClick` callback and the content of the component, passed down via `props.children`, while its appearance is determined by `props.isCollapsed` and based on `style`.
-* In the `Accordion` component, use the `React.useState()` hook to initialize the value of the `bindIndex` state variable to `props.defaultIndex`.
-* Use `Array.prototype.map` on the collected nodes to render the individual collapsiple elements.
-* Define `changeItem`, which will be executed when clicking an `AccordionItem`'s `<button>`.
-`changeItem` executes the passed callback, `onItemClick` and updates `bindIndex` based on the clicked element.
+* Xác định component `AccordionItem`, truyền nó cho `Accordion` và bỏ những thuộc tính không cần thiết `AccordionItem` bằng cách xác định tên của hàm trong `props.children`.
+* Mỗi component `AccordionItem` hiển thị một `<button>` sử dụng để cập nhật lại `Accordion` thông qua hàm callback `props.handleClick` và nội dung của component, được truyền qua `props.children`, được xác định qua biến `props.isCollapsed` và dựa trên `style`.
+* Trong component `Accordion`, sử dụng hook `React.useState()` để khởi tạo giá trị ban đầu cho `bindIndex` có giá trị là `props.defaultIndex`.
+* Sử dụng `Array.prototype.map` để hiển thị từng phần tử.
+* Xác định `changeItem`, sẽ được thực thi khi click vào `button` của `AccordionItem`.
+`changeItem` sẽ gọi hàm callback, `onItemClick` và cập nhật `bindIndex` dựa trên component đã được click.
 
 ```jsx
 function AccordionItem(props) {
@@ -882,11 +882,11 @@ ReactDOM.render(
 
 Hiển thị một carousel component.
 
-* Use the `React.setState()` hook to create the `active` state variable and give it a value of `0` (index of the first item).
-* Use an object, `style`, to hold the styles for the individual components.
-* Use the `React.setEffect()` hook to update the value of `active` to the index of the next item, using `setTimeout`.
-* Destructure `props`, compute if visibility style should be set to `visible` or not for each carousel item while mapping over and applying the combined style to the carousel item component accordingly.
-* Render the carousel items using `React.cloneElement()` and pass down rest `props` along with the computed styles.
+* Sử dụng hook `React.setState()` để tạo biến `active` và xét giá trị ban đầu bằng `0` (vị trí đầu tiên của danh sách).
+* Sử dụng đối tượng `style`, để tạo từng style cho mỗi component khác nhau.
+* Sử dụng hook `React.setEffect()` để cập nhật giá trị của `active` xét cho nó vị trí của item tiếp theo, sử dụng `setTimeout`.
+* Lấy prop `carouselItems`, để tính toán và xét giá trị cho `visible` là được hiển thị hay không hiển thị.
+* Hiển thị những carousel item bằng cách dùng `React.cloneElement()` và truyền cho `props` với các kiểu style đã được định sẵn.
 
 ```jsx
 function Carousel(props) {
@@ -949,13 +949,13 @@ ReactDOM.render(
 
 ### Collapse
 
-Renders a component with collapsible content.
+Hiển thị một component với nội dung có thể thu gọn.
 
-* Use the `React.setState()` hook to create the `isCollapsed` state variable with an initial value of `props.collapsed`.
-* Use an object, `style`, to hold the styles for individual components and their states.
-* Use a `<div>` to wrap both the `<button>` that alters the component's `isCollapsed` state and the content of the component, passed down via `props.children`.
-* Determine the appearance of the content, based on `isCollapsed` and apply the appropriate CSS rules from the `style` object.
-* Finally, update the value of the `aria-expanded` attribute based on `isCollapsed` to make the component accessible.
+* Sử dụng hook `React.setState()` để tạo biến `isCollapsed` và xét giá trị ban đầu bằng `props.collapsed`.
+* Sử dụng đối tượng `style`, để tạo từng style cho mỗi component khác nhau.
+* Sử dụng một `<div>` để bọc `<button>` để cập nhật biến `isCollapsed` và nội dụng của component, thông qua `props.children`.
+* Xác định sự xuất hiện của nội dung, dựa trên `isCollapsed` và áp dụng các style CSS thích hợp cho mỗi đối tượng.
+* Cuối cùng, cập nhật giá trị của thuộc tính `aria-expanded` dựa trên `isCollapsed` để cho component có thể truy cập được.
 
 ```jsx
 function Collapse(props) {
@@ -1009,16 +1009,16 @@ ReactDOM.render(
 
 ### CountDown
 
-Renders a countdown timer that prints a message when it reaches zero.
+Hiển thị đồng hồ đếm ngược in thông báo khi nó về không.
 
-* Use object destructuring to set defaults for the `hours`, `minutes` and `seconds` props.
-* Use the `React.useState()` hook to create the `time`, `paused` and `over` state variables and set their values to the values of the passed props, `false` and `false` respectively.
-* Create a method `tick`, that updates the value of `time` based on the current value (i.e. decreasing the time by one second).
-* If `paused` or `over` is `true`, `tick` will return immediately.
-* Create a method `reset`, that resets all state variables to their initial states.
-* Use the the `React.useEffect()` hook to call the `tick` method every second via the use of `setInterval()` and use `clearInterval()` to cleanup when the component is unmounted.
-* Use a `<div>` to wrap a `<p>` element with the textual representation of the components `time` state variable, as well as two `<button>` elements that will pause/unpause and restart the timer respectively.
-* If `over` is `true`, the timer will display a message instead of the value of `time`.
+* Sử dụng object destructuring để xét giá trị mặc định prop `hours`, `minutes` và `seconds`.
+* Sử dụng hook `React.useState()` tạo các biến `time`, `paused` và `over`, xét cho chúng các giá trị ban đầu lần lượt là `false` và `false`.
+* Tạo hàm `tick`, để cập nhật giá trị của `time` dựa trên giá trị hiện tại (tức là giảm thời gian xuống một giây).
+* Nếu `paused` hoặc `over` là `true`, `tick` sẽ quay lại ngay lập tức.
+* Tạo hàm `reset`, để cập nhật các biến về trạng thái ban đầu.
+* Sử dụng hook `React.useEffect()` để gọi hàm `tick` mỗi giây thông qua hàm `setInterval()` và sử dụng `clearInterval()` để clear giá trị khi component unmounted.
+* Sử dụng một `<div>` bọc thẻ `<p>` để hiển thị trạng thái của biến `time`, cũng như hai `<button>` pause/unpause và restart.
+* Nếu `over` là `true`, bộ hẹn giờ sẽ hiển thị một thông báo thay vì giá trị của `time`.
 
 ```jsx
 function CountDown({ hours = 0, minutes = 0, seconds = 0 }) {
