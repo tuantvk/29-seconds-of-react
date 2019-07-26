@@ -25,9 +25,9 @@
 
 - Sử dụng <kbd>Ctrl</kbd> + <kbd>F</kbd> hoặc <kbd>command</kbd> + <kbd>F</kbd> để tìm kiếm nhanh một snippet.
 - Contributions, hãy đọc [contribution guide](CONTRIBUTING.md).
-- Snippets viết bằng React 16.8+, sử dụng hooks.
+- Snippets viết bằng React 16.8+, sử dụng hooks. [Xem thêm Hooks](https://reactjs.org/docs/hooks-intro.html)
 
-#### Xem [Prerequisites](/Prerequisites.md) 
+### Xem [Prerequisites](/Prerequisites.md) 
 
 #### Các project khác
 
@@ -450,7 +450,7 @@ ReactDOM.render(
 
 ### PasswordRevealer
 
-Hiển thị trường nhập mật khẩu bằng cách bật tắt
+Hiển thị trường nhập mật khẩu bằng cách bật tắt.
 
 * Sử dụng hook `React.useState()` tạo một biến `shown` và cho nó giá trị là `false`.
 * Sử dụng một thẻ `<div>` đê bọc `<input>` và phần tử `<button>` để thay đổi trạng thái `"text"` và `"password"`.
