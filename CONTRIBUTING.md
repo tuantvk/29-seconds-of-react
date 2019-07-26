@@ -32,7 +32,7 @@ Here's what you can do to help:
 - Snippets should be as brief as possible, without sacrificing functionality. If your snippet seems longer than most, you can still submit it, and we can help you shorten it or figure out ways to improve it.
 - Snippets _should_ solve real-world problems, no matter how simple.
 - Snippets _should_ be abstract enough to be applied to different scenarios.
-- You can start creating a new snippet, by using the [snippet template](snippet-template.md) to format your snippets.
+- You can start creating a new snippet, by using the [snippet template](.github/snippet-template.md) to format your snippets.
 
 ### Additional guidelines and conventions regarding snippets
 
