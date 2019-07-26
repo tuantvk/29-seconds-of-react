@@ -280,8 +280,8 @@ Hiển thị một textarea component giới hạn kí tự.
 * Sử dụng `<div>` để bao thẻ `<textarea>` và thẻ `<p>` hiển thị độ dài của `content` và hàm `onChange` của thẻ `<textarea>`sẽ gọi hàm `setFormattedContent` và truyền giá trị là `event.target.value`.
 
 ```jsx
-function LimitedTextarea({ rows, cols, value, limit }) {
-  const [content, setContent] = React.useState(value);
+function LimitedTextarea({ rows, cols, initialValue, limit }) {
+  const [content, setContent] = React.useState(initialValue);
 
   const setFormattedContent = text => {
     text.length > limit ? setContent(text.slice(0, limit)) : setContent(text);
@@ -289,7 +289,7 @@ function LimitedTextarea({ rows, cols, value, limit }) {
 
   React.useEffect(() => {
     setFormattedContent(content);
-  }, []);
+  }, [limit]);
 
   return (
     <div>
@@ -311,7 +311,7 @@ function LimitedTextarea({ rows, cols, value, limit }) {
 <summary>Ví dụ</summary>
 
 ```jsx
-ReactDOM.render(<LimitedTextarea limit={32} value="Hello!" />, document.getElementById('root'));
+ReactDOM.render(<LimitedTextarea limit={32} initialValue="Hello!" />, document.getElementById('root'));
 ```
 </details>
 
@@ -862,7 +862,7 @@ Hiển thị một carousel component.
 
 * Sử dụng hook `React.setState()` để tạo biến `active` và xét giá trị ban đầu bằng `0` (vị trí đầu tiên của danh sách).
 * Sử dụng đối tượng `style`, để tạo từng style cho mỗi component khác nhau.
-* Sử dụng hook `React.setEffect()` để cập nhật giá trị của `active` xét cho nó vị trí của item tiếp theo, sử dụng `setTimeout`.
+* Sử dụng hook `React.useEffect()` để cập nhật giá trị của `active` xét cho nó vị trí của item tiếp theo, sử dụng `setTimeout`.
 * Lấy prop `carouselItems`, để tính toán và xét giá trị cho `visible` là được hiển thị hay không hiển thị.
 * Hiển thị những carousel item bằng cách dùng `React.cloneElement()` và truyền cho `props` với các kiểu style đã được định sẵn.
 
