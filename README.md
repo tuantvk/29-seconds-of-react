@@ -34,7 +34,7 @@
 - [30 Seconds of Code](https://30secondsofcode.org)
 - [30 Seconds of CSS](https://30-seconds.github.io/30-seconds-of-css/)
 - [30 Seconds of Interviews](https://30secondsofinterviews.org/)
-- [Javascript Interview Questions Developer](https://github.com/tuantvk/javascript-interview-questions-developer)
+- [Javascript Interview Questions Developer - My Repo 😎](https://github.com/tuantvk/javascript-interview-questions-developer)
 
 ## Table of Contents
 
