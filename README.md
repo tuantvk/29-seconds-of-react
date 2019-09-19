@@ -27,7 +27,7 @@
 - Contributions, hãy đọc [contribution guide](CONTRIBUTING.md).
 - Snippets viết bằng React 16.8+, sử dụng hooks. [Xem thêm Hooks](https://reactjs.org/docs/hooks-intro.html)
 
-### Xem [Prerequisites](/Prerequisites.md) 
+### Xem [Prerequisites](/Prerequisite.md) 
 
 #### Các project khác
 
