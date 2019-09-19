@@ -35,6 +35,8 @@
 - [30 Seconds of CSS](https://30-seconds.github.io/30-seconds-of-css/)
 - [30 Seconds of Interviews](https://30secondsofinterviews.org/)
 - [Javascript Interview Questions Developer - My Repo 😎](https://github.com/tuantvk/javascript-interview-questions-developer)
+- [React Native Testing](https://github.com/tuantvk/WtfReactNativeTesting)
+- [React mobx cli](https://github.com/tuantvk/react-mobx-cli)
 
 ## Table of Contents
 
@@ -1324,11 +1326,11 @@ function Modal({ isVisible = false, title, content, footer, onClose }){
 //Add the component to the render function
 function App() {
   const [ isModal, setModal] = React.useState(false);
-  
+
   return (
     <React.Fragment>
       <button onClick={()=> setModal(true)}>Click Here</button>
-      <Modal 
+      <Modal
         isVisible={ isModal }
         title= "Modal Title"
         content = {<p>Add your content here</p>}
